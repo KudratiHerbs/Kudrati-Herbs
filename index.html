@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kudrati-Herbs - Ancient Wisdom, Modern Healing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, #00ff87 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, #ff6b35 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, #7209b7 0%, transparent 50%);
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff87, #7209b7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #00ff87, #7209b7);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-login {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-signup {
+            background: linear-gradient(45deg, #00ff87, #7209b7);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 135, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 50px 100px;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #00ff87, #7209b7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            color: #00ff87;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #00ff87, #7209b7);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 255, 135, 0.4);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 255, 135, 0.1), rgba(114, 9, 183, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 255, 135, 0.5);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #00ff87, #7209b7);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #00ff87;
+        }
+
+        .feature-card p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 50px;
+            background: rgba(0, 0, 0, 0.3);
+            margin: 50px 0;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff87, #7209b7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+                /* Consultation Form */
+                .consultation {
+                    padding: 100px 50px;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    text-align: center;
+                }
+
+                .consultation h2 {
+                    font-size: 2.5rem;
+                    margin-bottom: 20px;
+                    background: linear-gradient(45deg, #fff, #00ff87);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                }
+
+                .form-container {
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 20px;
+                    padding: 40px;
+                    margin-top: 40px;
+                    backdrop-filter: blur(20px);
+                }
+
+                .form-group {
+                    margin-bottom: 20px;
+                    text-align: left;
+                }
+
+                .form-group label {
+                    display: block;
+                    margin-bottom: 8px;
+                    color: #00ff87;
+                    font-weight: 600;
+                }
+
+                .form-group input,
+                .form-group select,
+                .form-group textarea {
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 10px;
+                    background: rgba(255, 255, 255, 0.1);
+                    color: white;
+                    font-size: 1rem;
+                }
+
+                .form-group input::placeholder,
+                .form-group textarea::placeholder {
+                    color: rgba(255, 255, 255, 0.5);
+                }
+
+                .form-row {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 20px;
+                }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: #00ff87;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            .hero, .features, .consultation {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid #00ff87;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Success message */
+        .success-message {
+            display: none;
+            background: rgba(0, 255, 135, 0.2);
+            border: 1px solid rgba(0, 255, 135, 0.5);
+            color: #00ff87;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Kudrati Herbs</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#treatments">Treatments</a></li>
+                <li><a href="#consultation">Consultations</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-login">Log In</a>
+                <a href="#" class="btn btn-signup">Book Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Ancient Wisdom Meets <span class="highlight">Modern Healing</span></h1>
+        <p>Experience the power of Ayurvedic medicine with cutting-edge technology and personalized wellness solutions.</p>
+        <a href="#consultation" class="cta-button">
+            Start Your Journey
+            <span>→</span>
+        </a>
+    </section>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Happy Patients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Ayurvedic Treatments</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="treatments">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>Herbal Medicine</h3>
+                <p>Natural herbal formulations crafted using traditional Ayurvedic principles combined with modern quality standards for optimal healing.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧘</div>
+                <h3>Personalized Wellness</h3>
+                <p>AI-powered dosha analysis and personalized treatment plans tailored to your unique constitution and health needs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💆</div>
+                <h3>Therapeutic Treatments</h3>
+                <p>Ancient Panchakarma therapies and specialized treatments for detoxification, rejuvenation, and holistic healing.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Digital Consultations</h3>
+                <p>Connect with certified Ayurvedic practitioners through secure video consultations and receive expert guidance from anywhere.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌟</div>
+                <h3>Lifestyle Coaching</h3>
+                <p>Comprehensive lifestyle guidance including diet, exercise, meditation, and daily routines aligned with Ayurvedic principles.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔬</div>
+                <h3>Modern Diagnostics</h3>
+                <p>Advanced diagnostic tools combined with traditional pulse diagnosis for accurate assessment and treatment planning.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="consultation" id="consultation">
+        <h2>Book Your Consultation</h2>
+        <p>Start your journey towards optimal health with a personalized Ayurvedic consultation</p>
+        
+        <div class="form-container">
+            <form id="consultationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" required placeholder="25" min="1" max="120">
+                    </div>
+                    <div class="form-group">
+                        <label for="consultationType">Consultation Type</label>
+                        <select id="consultationType" name="consultationType" required>
+                            <option value="">Select consultation type</option>
+                            <option value="general">General Health Consultation</option>
+                            <option value="chronic">Chronic Disease Management</option>
+                            <option value="wellness">Wellness & Prevention</option>
+                            <option value="lifestyle">Lifestyle Coaching</option>
+                            <option value="panchakarma">Panchakarma Therapy</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="healthConcerns">Primary Health Concerns</label>
+                    <textarea id="healthConcerns" name="healthConcerns" rows="4" placeholder="Please describe your main health concerns and goals..."></textarea>
+                </div>
+
+                <button type="submit" class="cta-button">
+                    <span class="button-text">Book Consultation</span>
+                    <div class="loading"></div>
+                </button>
+
+                <div class="success-message" id="successMessage">
+                    Thank you! Your consultation request has been submitted. We'll contact you within 24 hours to confirm your appointment.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#blog">Blog</a>
+            </div>
+            <p>&copy; 2025 AyurVeda. Ancient wisdom for modern healing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('consultationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const button = e.target.querySelector('.cta-button');
+            const buttonText = button.querySelector('.button-text');
+            const loading = button.querySelector('.loading');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Show loading state
+            buttonText.style.display = 'none';
+            loading.style.display = 'block';
+            button.disabled = true;
+            
+            // Collect form data
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Store consultation data (in a real app, this would go to a backend)
+                const consultations = JSON.parse(localStorage.getItem('consultations') || '[]');
+                consultations.push({
+                    ...data,
+                    id: Date.now(),
+                    timestamp: new Date().toISOString(),
+                    status: 'pending'
+                });
+                localStorage.setItem('consultations', JSON.stringify(consultations));
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                e.target.reset();
+                
+                // Send confirmation email simulation
+                console.log('Consultation request submitted:', data);
+                
+            } catch (error) {
+                alert('There was an error submitting your request. Please try again.');
+            } finally {
+                // Reset button state
+                buttonText.style.display = 'inline';
+                loading.style.display = 'none';
+                button.disabled = false;
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0, 0, 0, 0.8)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.3)';
+            }
+        });
+
+        // Animate stats on scroll
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = target.textContent;
+                        const numericValue = parseInt(finalValue.replace(/\D/g, ''));
+                        const suffix = finalValue.replace(/\d/g, '');
+                        
+                        let current = 0;
+                        const increment = numericValue / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= numericValue) {
+                                current = numericValue;
+                                clearInterval(timer);
+                            }
+                            target.textContent = Math.floor(current) + suffix;
+                        }, 40);
+                    }
+                });
+            });
+            
+            stats.forEach(stat => observer.observe(stat));
+        }
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            animateStats();
+        });
+
+        // Backend API simulation functions
+        const AyurvedaAPI = {
+            // Consultation management
+            submitConsultation: async (data) => {
+                const consultations = JSON.parse(localStorage.getItem('consultations') || '[]');
+                const newConsultation = {
+                    ...data,
+                    id: Date.now(),
+                    timestamp: new Date().toISOString(),
+                    status: 'pending'
+                };
+                consultations.push(newConsultation);
+                localStorage.setItem('consultations', JSON.stringify(consultations));
+                return newConsultation;
+            },
+            
+            getConsultations: () => {
+                return JSON.parse(localStorage.getItem('consultations') || '[]');
+            },
+            
+            // Dosha analysis
+            analyzeDoshaProfile: (userData) => {
+                // Simplified dosha analysis based on user data
+                const doshas = ['Vata', 'Pitta', 'Kapha'];
+                const primary = doshas[Math.floor(Math.random() * doshas.length)];
+                const secondary = doshas.filter(d => d !== primary)[Math.floor(Math.random() * 2)];
+                
+                return {
+                    primary,
+                    secondary,
+                    recommendations: getDoshaRecommendations(primary),
+                    balanceScore: Math.floor(Math.random() * 40) + 60
+                };
+            },
+            
+            // Treatment recommendations
+            getPersonalizedTreatments: (doshaProfile, healthConcerns) => {
+                const treatments = {
+                    Vata: ['Abhyanga Massage', 'Shirodhara', 'Nasya Therapy'],
+                    Pitta: ['Sheetali Pranayama', 'Coconut Oil Massage', 'Cooling Herbs'],
+                    Kapha: ['Udvartana', 'Steam Therapy', 'Energizing Herbs']
+                };
+                
+                return treatments[doshaProfile.primary] || treatments.Vata;
+            }
+        };
+
+        function getDoshaRecommendations(dosha) {
+            const recommendations = {
+                Vata: {
+                    diet: ['Warm, cooked foods', 'Sweet, sour, salty tastes', 'Regular meal times'],
+                    lifestyle: ['Regular sleep schedule', 'Gentle exercise', 'Stress reduction'],
+                    herbs: ['Ashwagandha', 'Brahmi', 'Jatamansi']
+                },
+                Pitta: {
+                    diet: ['Cool, fresh foods', 'Sweet, bitter, astringent tastes', 'Avoid spicy foods'],
+                    lifestyle: ['Cool environment', 'Moderate exercise', 'Avoid overheating'],
+                    herbs: ['Amalaki', 'Shatavari', 'Neem']
+                },
+                Kapha: {
+                    diet: ['Light, warm foods', 'Pungent, bitter, astringent tastes', 'Avoid heavy foods'],
+                    lifestyle: ['Regular exercise', 'Active lifestyle', 'Avoid oversleeping'],
+                    herbs: ['Trikatu', 'Guggulu', 'Turmeric']
+                }
+            };
+            
+            return recommendations[dosha] || recommendations.Vata;
+        }
+
+        // Console API demonstration
+        console.log('AyurVeda API Ready!');
+        console.log('Available API functions:');
+        console.log('- AyurvedaAPI.submitConsultation(data)');
+        console.log('- AyurvedaAPI.getConsultations()');
+        console.log('- AyurvedaAPI.analyzeDoshaProfile(userData)');
+        console.log('- AyurvedaAPI.getPersonalizedTreatments(doshaProfile, concerns)');
+        
+        // Example usage
+        window.AyurvedaAPI = AyurvedaAPI;
+    </script>
+</body>
+</html>
