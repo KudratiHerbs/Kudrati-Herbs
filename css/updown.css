@@ -1,0 +1,113 @@
+/* Smart Scroll Button */
+        .scroll-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #00ff87, #7209b7);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .scroll-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+        }
+
+        .scroll-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Arrow Animation */
+        .scroll-btn .arrow {
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Arrow direction change animation */
+        .scroll-btn .arrow.changing {
+            animation: arrowFlip 0.6s ease-in-out;
+        }
+
+        @keyframes arrowFlip {
+            0% {
+                transform: scale(1) rotateY(0deg);
+            }
+            25% {
+                transform: scale(0.8) rotateY(90deg);
+            }
+            50% {
+                transform: scale(0.6) rotateY(180deg);
+                opacity: 0.3;
+            }
+            75% {
+                transform: scale(0.8) rotateY(270deg);
+            }
+            100% {
+                transform: scale(1) rotateY(360deg);
+            }
+        }
+
+        /* Bounce animation when button becomes active */
+        .scroll-btn.direction-changed {
+            animation: buttonBounce 0.4s ease-out;
+        }
+
+        @keyframes buttonBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            40% {
+                transform: translateY(-5px) scale(1.05);
+            }
+            60% {
+                transform: translateY(-2px) scale(1.02);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .content h2 {
+                font-size: 2rem;
+            }
+            
+            footer h3 {
+                font-size: 2rem;
+            }
+            
+            .scroll-btn {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.2rem;
+            }
+        }
