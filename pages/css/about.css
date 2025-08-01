@@ -222,7 +222,7 @@ nav {
 }
 
 .ourstory-section h2 {
-    font-size: clamp(1.2rem, 2.5vw, 3rem);
+    font-size: clamp(1.6rem, 2.5vw, 3rem);
     margin-bottom: 30px;
     /* background: linear-gradient(45deg, #00ff87, #7209b7);
     background-clip: content-box;
@@ -277,11 +277,11 @@ nav {
 .content-card h3 {
     color: #c9c9c9;
     margin-bottom: 15px;
-    font-size: clamp(1rem,2.5vw,1.2rem);
+    font-size: clamp(1.3rem,2.5vw,1.2rem);
 }
 
 .content-card p {
-    font-size: clamp(0.7rem,2.5vw,1rem);
+    font-size: clamp(0.9rem,2.5vw,1rem);
     color: #b5b5b5;
     margin-bottom: 15px;
     text-align: justify;
