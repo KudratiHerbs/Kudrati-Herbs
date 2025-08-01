@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kudrati Herbs</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/updown.css" />
+    <!--- css for updown button-->
+    <!-- <link rel="stylesheet" href="css/all.min.css"> -->
+    <!-- <script src="js/all.min.js"></script> -->
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- BG Animation -->
+    <div class="bg-animation"></div>
+
+    <!-- NavBar -->
+    <nav id="nav">
+      <div class="nav-container">
+        <div class="logo animate__animated animate__flip nav-item">
+          <a href="index.html">Kudrati Herbs</a>
+        </div>
+        <ul class="nav-links animate__animated animate__zoomInDown nav-item">
+          <li><a href="#home" id="homes">Home</a></li>
+          <li><a href="#treatments">Treatments</a></li>
+          <li id="Category-btn-li">
+            <a href="#Category" id="Category-btn">Category</a>
+          </li>
+          <li><a href="#" id="">Blog</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li id="nav-contact-btn"><a href="#contactus">Contact</a></li>
+        </ul>
+        <!-- Category Box -->
+        <div class="category" id="category-box" style="height: 0px">
+          <ul class="category-nav" id="category-nav">
+            <li><a href="#">Human</a></li>
+            <li><a href="#">Plant's</a></li>
+          </ul>
+        </div>
+
+        <div class="auth-buttons nav-item animate__animated animate__flipInY">
+          <a href="pages/consultation.html" class="btn" id="consultation-btn"
+            >Book Consultation</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero animate__animated animate__zoomInUp" id="home">
+      <h1 class="animate__animated ">
+        Ancient <span class="highlight">Wisdom Meets </span>Modern Healing
+      </h1>
+      <h2 class="animate__animated ">Kudrati Herbs</h2>
+      <p class="animate__animated ">
+        Sharir&nbsp;<i class="fa-solid fa-child-reaching body-icon-color"></i
+        >&nbsp;ka ilaaj kudrat&nbsp;<i
+          class="fa-brands fa-pagelines body-icon-color"
+        ></i
+        >&nbsp;ke saath
+      </p>
+      <a
+        href="pages/consultation.html"
+        class="cta-button animate__animated "
+      >
+        Start Your Journey
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
+
+    <!-- Swiper -->
+    <div id="swiper-main-container">
+      <div class="swiper main-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://res.cloudinary.com/du8b67ja0/image/upload/v1751999881/logo5_qxhprj.jpg"
+              alt="Logoname"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://res.cloudinary.com/du8b67ja0/image/upload/v1753945260/file_0000000060306246a8c99ca1efc9c8a7_nplhrt.png"
+              alt="Al-shifa Medecine"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://res.cloudinary.com/du8b67ja0/image/upload/v1751999892/vardhak_lerehs.png"
+              alt="Kudrati Vardhak Plants Growth"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://res.cloudinary.com/du8b67ja0/image/upload/v1751999884/bbb_hucibc.webp"
+              alt="khad"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://res.cloudinary.com/du8b67ja0/image/upload/v1751999883/aaa_ifer6e.jpg"
+              alt="Flower for Vibes"
+            />
+          </div>
+        </div>
+
+        <!-- Arrows -->
+        <div class="swiper-button-next carousel-button"></div>
+        <div class="swiper-button-prev carousel-button"></div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Stats Means Experience & Client's -->
+    <section class="stats">
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Happy Patients</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Ayurvedic Treatments</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Success Rate</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Treatments & Features -->
+    <section class="features" id="treatments">
+      <div class="features-grid">
+        <div class="feature-card" onclick="treatmentopen()">
+          <div class="feature-icon">🌿</div>
+          <h3>Herbal Medicine</h3>
+          <p>
+            Natural herbal formulations crafted using traditional Ayurvedic
+            principles combined with modern quality standards for optimal
+            healing.
+          </p>
+        </div>
+        <div class="feature-card" onclick="treatmentopen()">
+          <div class="feature-icon">🧘</div>
+          <h3>Personalized Wellness</h3>
+          <p>
+            AI-powered dosha analysis and personalized treatment plans tailored
+            to your unique constitution and health needs.
+          </p>
+        </div>
+        <div class="feature-card" onclick="treatmentopen()">
+          <div class="feature-icon">💆</div>
+          <h3>Therapeutic Treatments</h3>
+          <p>
+            Ancient Panchakarma therapies and specialized treatments for
+            detoxification, rejuvenation, and holistic healing.
+          </p>
+        </div>
+        <div class="feature-card" onclick="treatmentopen()">
+          <div class="feature-icon">📱</div>
+          <h3>Digital Consultations</h3>
+          <p>
+            Connect with certified Ayurvedic practitioners through secure video
+            consultations and receive expert guidance from anywhere.
+          </p>
+        </div>
+        <div class="feature-card" onclick="treatmentopen()">
+          <div class="feature-icon">🌟</div>
+          <h3>Lifestyle Coaching</h3>
+          <p>
+            Comprehensive lifestyle guidance including diet, exercise,
+            meditation, and daily routines aligned with Ayurvedic principles.
+          </p>
+        </div>
+        <div class="feature-card" onclick="treatmentopen()">
+          <div class="feature-icon">🔬</div>
+          <h3>Modern Diagnostics</h3>
+          <p>
+            Advanced diagnostic tools combined with traditional pulse diagnosis
+            for accurate assessment and treatment planning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social and contacts -->
+    <section id="contactus">
+      <div class="contact-container">
+        <div class="contact-box-left">
+          <div class="contact-items">
+            <a href="tel:+91 8989465886"
+              ><i class="fa-solid fa-phone contact-email-no"></i>
+              <p>+91 9589245466</p></a
+            >
+          </div>
+          <div class="contact-items">
+            <a
+              href="https://mail.google.com/mail/?view=cm&to=kudaratiherbs@gmail.com"
+            >
+              <i class="fa-solid fa-envelope contact-email-no"></i>
+              <p>Kudratiherbs.help@gmail.com</p>
+            </a>
+          </div>
+
+          <div id="contact-icon-box" style="display: flex; gap: 30px">
+            <a
+              href="https://www.instagram.com/kudratiherbs?igsh=MWxzZ2diZ2szMzBuMA=="
+            >
+              <div class="contact-icons" id="insta" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61576271948162">
+              <div class="contact-icons" id="facebook" title="Facebook">
+                <i class="fa-brands fa-facebook"></i>
+              </div>
+            </a>
+            <a href="https://youtube.com/@altamashdev?si=WHmuFeafv0nLIg3E">
+              <div class="contact-icons" id="youtube" title="Youtube">
+                <i class="fa-brands fa-youtube"></i>
+              </div>
+            </a>
+            <a href="">
+              <div class="contact-icons" id="telegram" title="Telegram">
+                <i class="fa-brands fa-telegram"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="contact-box-right">
+          <h1>Customer Support</h1>
+          <p>
+            Need help with your order, products, or delivery? Our team is
+            available 7 days a week and responds within
+            <strong>24 hours</strong>. Contact us anytime — we’re always here to
+            support your herbal wellness journey 🌿
+          </p>
+        </div>
+        <div class="contact-box"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-links">
+          <a
+            href="https://github.com/KudratiHerbs/files/raw/main/Kudrati-Herbs-Legal-Compliance-Policy-for-Ayurvedic-Products.pdf"
+            >Privacy Policy</a
+          >
+          <a
+            href="https://github.com/KudratiHerbs/files/raw/main/Kudrati-Herbs-Terms-of-Service-for-Ayurvedic-Products.pdf"
+            >Terms of Service</a
+          >
+          <a href="pages/about.html">About Us</a>
+          <a href="#contactus">Contact</a>
+          <a href="#blog">Blog</a>
+        </div>
+        <p>
+          &copy; 2025 KudratiHerbs. Ancient wisdom for modern healing. All
+          rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Up and Down Button -->
+    <!-- Smart Scroll Button -->
+    <button class="scroll-btn" id="scrollBtn">
+      <span class="arrow">↓</span>
+    </button>
+
+    <!-- External Script File -->
+    <script src="js/script.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+      <!-- Up and Down Button Coding -->
+    <script src="js/updown.js"></script>
+
+    <script>
+      //   Initialize Swiper
+      const swiper = new Swiper(".swiper", {
+        loop: true,
+        grabCursor: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+    
+    </script>
+  </body>
+</html>

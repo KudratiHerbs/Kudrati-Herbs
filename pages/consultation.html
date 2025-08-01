@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Cunsoltation</title>
+    <link rel="stylesheet" href="css/consultation.css" />
+    <link rel="stylesheet" href="css/updown.css" />
+    <!-- updown css -->
+    <!-- <link rel="stylesheet" href="css/all.min.css"> -->
+    <!-- <script src="js/all.min.js"></script> -->
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- BG Animation -->
+    <div class="bg-animation"></div>
+
+    <!-- NavBar -->
+    <nav id="nav">
+      <div class="nav-container">
+        <div class="logo animate__animated animate__flip nav-item">
+          <a href="../index.html">Kudrati Herbs</a>
+        </div>
+        <ul class="nav-links animate__animated animate__zoomInDown nav-item">
+          <li><a href="../index.html" id="homes">Home</a></li>
+          <li><a href="#treatments">Clients</a></li>
+          <li id="Category-btn-li">
+            <a href="#Category" id="Category-btn">Category</a>
+          </li>
+          <li><a href="#" id="">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li id="nav-contact-btn"><a href="#contactus">Contact</a></li>
+        </ul>
+        <!-- Category Box -->
+        <div class="category" id="category-box" style="height: 0px">
+          <ul class="category-nav" id="category-nav">
+            <li><a href="#">Human</a></li>
+            <li><a href="#">Plant's</a></li>
+          </ul>
+        </div>
+
+        <div class="auth-buttons nav-item animate__animated animate__flipInY">
+          <a href="#consultation" class="btn" id="consultation-btn"
+            >Book Consultation</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- all section of body -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero animate__animated animate__zoomInUp">
+        <div class="container">
+          <h1>Book Your Herbal Consultation</h1>
+          <p>
+            Experience the power of ancient Ayurvedic wisdom combined with
+            modern healing techniques. Our certified herbalists are here to
+            guide you on your journey to optimal health and wellness.
+          </p>
+          <a href="#consultation" class="cta-button"
+            >Book Now <br />
+            <i class="fa-solid fa-arrow-down"></i
+          ></a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+      <div class="container">
+        <h2 class="section-title">Why Choose Kudrati Herbs?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🌿</div>
+            <h3>100% Natural Approach</h3>
+            <p>
+              Our treatments are based on pure, natural herbs and traditional
+              Ayurvedic principles, ensuring no harmful side effects.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">👨‍⚕️</div>
+            <h3>Expert Practitioners</h3>
+            <p>
+              Our team consists of certified Ayurvedic practitioners with over
+              20 years of combined experience in herbal medicine.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Personalized Treatment</h3>
+            <p>
+              Every consultation is tailored to your unique constitution, health
+              concerns, and lifestyle for optimal results.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h3>Proven Results</h3>
+            <p>
+              Thousands of satisfied clients have experienced significant
+              improvements in their health and wellbeing.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>Ongoing Support</h3>
+            <p>
+              Receive continuous guidance and support throughout your healing
+              journey with regular follow-ups.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Confidential & Safe</h3>
+            <p>
+              All consultations are completely confidential and conducted in a
+              safe, professional environment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hidden form for netlify -->
+    <form name="consultation" method="POST" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="consultation" />
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="number" name="age" />
+      <input type="text" name="Gender" />
+      <input type="text" name="consultationType" />
+      <input type="date" name="PreferredDate" />
+      <input type="text" name="PreferredTime" />
+      <textarea name="healthConcerns"></textarea>
+      <textarea name="medications"></textarea>
+      <textarea name="additionalInfo"></textarea>
+    </form>
+
+    <!-- Consultation Form -->
+    <section class="consultation" id="consultation">
+      <h2>Book Your Consultation</h2>
+      <p>
+        Start your journey towards optimal health with a personalized Ayurvedic
+        consultation
+      </p>
+      <!-- For Netlify database form  -->
+      <div class="form-container">
+        <form
+          name="consultation"
+          method="POST"
+          data-netlify="true"
+          netlify
+          id="consultationForm"
+          action=""
+        >
+          <!-- this field is required so that Netlify can match the form submission to the correct form name in its backend  -->
+          <input type="hidden" name="form-name" value="consultation" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+                placeholder="Enter your first name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                placeholder="Enter your last name"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                placeholder="+1 (555) 123-4567"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                required
+                placeholder="25"
+                min="1"
+                max="120"
+              />
+            </div>
+            <div class="form-group">
+              <label for="Gender">Gender</label>
+              <select id="Gender" name="Gender" required>
+                <option value="">Choose Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="consultationType">Consultation Type</label>
+            <select id="consultationType" name="consultationType" required>
+              <option value="">Select consultation type</option>
+              <option value="general">General Health Consultation</option>
+              <option value="chronic">Chronic Disease Management</option>
+              <option value="wellness">Wellness & Prevention</option>
+              <option value="lifestyle">Lifestyle Coaching</option>
+              <option value="panchakarma">Panchakarma Therapy</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="PreferredDate">Preferred Date *</label>
+              <input
+                type="date"
+                id="PreferredDate"
+                name="PreferredDate"
+                required
+                style="padding: 8px; padding-left: 13px"
+              />
+            </div>
+            <div class="form-group">
+              <label for="PreferredTime">Preferred Time *</label>
+              <select id="PreferredTime" name="PreferredTime" required>
+                <option value="">Select Time</option>
+                <option value="09:00">09:00 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="14:00">02:00 PM</option>
+                <option value="15:00">03:00 PM</option>
+                <option value="16:00">04:00 PM</option>
+                <option value="17:00">05:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="healthConcerns">Primary Health Concerns</label>
+            <textarea
+              id="healthConcerns"
+              name="healthConcerns"
+              required
+              rows="4"
+              placeholder="Please describe your main health concerns and symptoms..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="medications">Current Medications</label>
+            <textarea
+              id="medications"
+              name="medications"
+              required
+              rows="4"
+              placeholder="List any current medications, supplements, or treatments you're taking..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="additionalInfo">Additional Information</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              rows="4"
+              placeholder="Any other relevant information about your health history, lifestyle, or specific questions..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="cta-button" style="margin-bottom: 20px">
+            <span class="button-text">Book Consultation</span>
+            <div class="loading" style="display: none">
+              <i class="fa-solid fa-spinner fa-spin"></i>
+            </div>
+          </button>
+
+          <div class="success-message" id="successMessage">
+            Thank you! Your consultation request has been submitted. We'll
+            contact you within 24 hours to confirm your appointment.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+      <div class="container">
+        <h2 class="faq-section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>1. What is an Ayurvedic consultation?</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              An Ayurvedic consultation is a personalized health assessment
+              based on ancient Indian medicine principles. Our experts evaluate
+              your body type (dosha), lifestyle, and symptoms to recommend
+              natural remedies and lifestyle changes.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>2. Is Kudrati Herbs' treatment safe for all ages?</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes, our products and treatments are based on 100% natural
+              ingredients and are generally safe for all age groups. However, we
+              recommend a consultation before use, especially for children,
+              pregnant women, or people with chronic illnesses.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>3. Do your products have any side effects?</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              No, our herbal products are made from natural ingredients without
+              chemicals or preservatives. They are designed to work gently with
+              your body. Still, every individual is different, so a consultation
+              is always recommended.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>4. Can I use your herbal products along with allopathic medicine?</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              In most cases, yes. However, we advise speaking with our Ayurvedic practitioner or your doctor before mixing treatments.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>5. How long does it take to see results from Ayurvedic treatments?</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Ayurveda focuses on healing the root cause, not just symptoms. Depending on your condition and consistency, results may be visible within a few days to several weeks.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>6. Do I need to visit in person for a consultation?</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              No, we offer both online and offline consultations. You can book your preferred time and method via our website.
+            </p>
+          </div>
+        </div>
+
+         <div class="faq-item">
+          <div class="faq-question">
+            <h3>7. Are your products approved by any regulatory body?</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes, our products follow guidelines set by the AYUSH Ministry and local food and drug authorities. They are manufactured with safety and quality standards.
+            </p>
+          </div>
+        </div>
+
+         <div class="faq-item">
+          <div class="faq-question">
+            <h3>8. Do you ship across India?</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes, we deliver our herbal products across India through reliable courier partners.
+            </p>
+          </div>
+        </div>
+
+         <div class="faq-item">
+          <div class="faq-question">
+            <h3>9. How can I track my order?</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Once your order is dispatched, we’ll share the tracking details on your registered email or WhatsApp number.
+            </p>
+          </div>
+        </div>
+
+         <div class="faq-item">
+          <div class="faq-question">
+            <h3>10. How do I contact Kudrati Herbs for support?</h3>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+             You can reach us via:
+             <ul style="padding:10px 0px;padding-left: 30px;">
+              <li style="font-size: 15px !important;">📞 Phone: +91 9589245466</li> <br>
+              <li style="font-size: 15px !important;">📧 Email: kudratiherbs.help@gmail.com</li> <br>
+              <li style="font-size: 15px !important;">📱 Instagram: @kudratiherbs</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- Social and contacts -->
+    <section id="contactus">
+      <div class="contact-container">
+        <div class="contact-box-left">
+          <div class="contact-items">
+            <a href="tel:+91 8989465886"
+              ><i class="fa-solid fa-phone contact-email-no"></i>
+              <p>+91 9589245466</p></a
+            >
+          </div>
+          <div class="contact-items">
+            <a
+              href="https://mail.google.com/mail/?view=cm&to=kudaratiherbs@gmail.com"
+            >
+              <i class="fa-solid fa-envelope contact-email-no"></i>
+              <p>Kudratiherbs.help@gmail.com</p>
+            </a>
+          </div>
+
+          <div id="contact-icon-box" style="display: flex; gap: 30px">
+            <a
+              href="https://www.instagram.com/kudratiherbs?igsh=MWxzZ2diZ2szMzBuMA=="
+            >
+              <div class="contact-icons" id="insta" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61576271948162">
+              <div class="contact-icons" id="facebook" title="Facebook">
+                <i class="fa-brands fa-facebook"></i>
+              </div>
+            </a>
+            <a href="https://youtube.com/@altamashdev?si=WHmuFeafv0nLIg3E">
+              <div class="contact-icons" id="youtube" title="Youtube">
+                <i class="fa-brands fa-youtube"></i>
+              </div>
+            </a>
+            <a href="">
+              <div class="contact-icons" id="telegram" title="Telegram">
+                <i class="fa-brands fa-telegram"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="contact-box-right">
+          <h1>Customer Support</h1>
+          <p>
+            Need help with your order, products, or delivery? Our team is
+            available 7 days a week and responds within
+            <strong>24 hours</strong>. Contact us anytime — we’re always here to
+            support your herbal wellness journey 🌿
+          </p>
+        </div>
+        <div class="contact-box"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-links">
+          <a
+            href="https://github.com/KudratiHerbs/files/raw/main/Kudrati-Herbs-Legal-Compliance-Policy-for-Ayurvedic-Products.pdf"
+            >Privacy Policy</a
+          >
+          <a
+            href="https://github.com/KudratiHerbs/files/raw/main/Kudrati-Herbs-Terms-of-Service-for-Ayurvedic-Products.pdf"
+            >Terms of Service</a
+          >
+          <a href="about.html">About Us</a>
+          <a href="#contactus">Contact</a>
+          <a href="#blog">Blog</a>
+        </div>
+        <p>
+          &copy; 2025 KudratiHerbs. Ancient wisdom for modern healing. All
+          rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Up and Down Button -->
+    <!-- Smart Scroll Button -->
+    <button class="scroll-btn" id="scrollBtn">
+      <span class="arrow">↓</span>
+    </button>
+
+    <!-- consultation of js -->
+    <script src="js/consultation.js"></script>
+    <!-- js for up down button -->
+    <script src="js/updown.js"></script>
+    <script>
+      // Form Submiting for consultation
+      document
+        .getElementById("consultationForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault(); // Stop the default form submission
+
+          const form = e.target;
+          const button = form.querySelector(".cta-button");
+          const buttonText = button.querySelector(".button-text");
+          const loading = button.querySelector(".loading");
+          const successMessage = document.getElementById("successMessage");
+
+          // Show loading spinner
+          buttonText.style.display = "none";
+          loading.style.display = "block";
+          button.disabled = true;
+
+          // Prepare the form data
+          const formData = new FormData(form);
+
+          try {
+            // Submit the form data using fetch so Netlify captures all fields
+            const response = await fetch("/", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+              body: new URLSearchParams(formData).toString(),
+            });
+
+            if (response.ok) {
+              successMessage.style.display = "block";
+              form.reset();
+            } else {
+              alert("Something went wrong. Please try again.");
+            }
+          } catch (error) {
+            alert(
+              "There was an error submitting the form. Please try again later."
+            );
+          } finally {
+            // Reset loading state
+            buttonText.style.display = "inline";
+            loading.style.display = "none";
+            button.disabled = false;
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+              successMessage.style.display = "none";
+            }, 5000);
+          }
+        });
+    </script>
+  </body>
+</html>
